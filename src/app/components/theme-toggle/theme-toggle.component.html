@@ -1,0 +1,9 @@
+<div class="p-component mt-4">
+  <span>Wybierz widok</span>
+  <p-selectButton
+    optionLabel="name"
+    optionValue="value"
+    [options]="themes"
+    [(ngModel)]="selectedTheme"
+    (ngModelChange)="onThemeChange($event)"></p-selectButton>
+</div>

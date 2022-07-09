@@ -12,20 +12,4 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.primengConfig.ripple = true;
   }
-
-  data: any[] = [
-    { name: 'Steave', age: '23' },
-    { name: 'Steave', age: '23' },
-    { name: 'Steave', age: '23' },
-    { name: 'Steave', age: '23' },
-    { name: 'Steave', age: '23' },
-    { name: 'Steave', age: '23' },
-    { name: 'Steave', age: '23' },
-    { name: 'Steave', age: '23' },
-    { name: 'Steave', age: '23' },
-  ];
-  cols: any[] = [
-    { header: 'Name', field: 'name' },
-    { header: 'Age', field: 'age' },
-  ];
 }

@@ -3,18 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TableModule } from 'primeng/table';
-import { ButtonModule } from 'primeng/button';
-import { RippleModule } from 'primeng/ripple';
+import { ExchangeTableComponent } from './components/exchange-table/exchange-table.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgPrimeModule } from './modules/ng-prime.module';
+import { FormsModule } from '@angular/forms';
+import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ExchangeTableComponent, ThemeToggleComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    TableModule,
-    ButtonModule,
-    RippleModule,
+    HttpClientModule,
+    NgPrimeModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

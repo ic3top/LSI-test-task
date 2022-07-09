@@ -1,0 +1,71 @@
+<ng-container *ngIf="exchangeRates$ | async as exchangeRates">
+  <p-table
+    #table
+    [value]="exchangeRates"
+    [paginator]="true"
+    [rows]="rows"
+    [rowsPerPageOptions]="[10, 25, 50]">
+    <ng-template pTemplate="caption">
+      <div class="flex justify-content-between">
+        <button
+          pButton
+          label="Clear"
+          class="p-button-outlined"
+          icon="pi pi-filter-slash"
+          (click)="clear(table)"></button>
+
+        <span class="p-float-label">
+          <p-calendar
+            inputId="inputId"
+            dateFormat="yy-mm-dd"
+            [maxDate]="maxDateFilter"
+            [showIcon]="true"
+            [ngModel]="dateFilter"
+            (ngModelChange)="onDateFilterChange($event)"></p-calendar>
+          <label for="inputId" class="font-light">yyyy-mm-dd</label>
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="code">
+          <div class="flex justify-content-between align-items-center">
+            Symbol waluty
+            <p-columnFilter
+              type="text"
+              field="code"
+              display="menu"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="currency">
+          <div class="flex justify-content-between align-items-center">
+            Waluta
+            <p-columnFilter
+              type="text"
+              field="currency"
+              display="menu"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="mid">
+          <div class="flex justify-content-between align-items-center">
+            Kurs waluty
+            <p-columnFilter
+              type="number"
+              field="mid"
+              display="menu"></p-columnFilter>
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-row>
+      <tr>
+        <td>{{ row.code }}</td>
+        <td>{{ row.currency }}</td>
+        <td>{{ row.mid }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <h2 class="font-bold">No data to display</h2>
+    </ng-template>
+  </p-table>
+</ng-container>
